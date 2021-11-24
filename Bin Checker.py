@@ -1,64 +1,45 @@
 import requests
+import json
+from dictor import dictor
+
 
 def menu():
-    print("[1] Bin Lookup")
-    print("[2] Option 2")
-    print("[3] Option 3")
-    print("[0] Exit the program")
+    print("BIN Checker v1.0")
+    print("Author : Zeta\n")
 
 menu()
-option = int(input("Enter your option: "))
 
-while option != 0:
-    if option == 1:
+while True:
 
-        def info():
-            print("[+] Network: " + str.capitalize(scheme))
-            print("[+] Type : " + str.capitalize(type))
-            print("[+] Brand : " + brand)
-            print("[+] Prepaid : " + prepaid)
-            print("[+] Bank : " + bank)
+    def info():
+        print()
+        print ("[+] Network: " + str.capitalize(scheme))
+        print ("[+] Type : " + str.capitalize(types))
+        print ("[+] Brand : " + brand)
+        print ("[+] Prepaid : " + prepaid)
+        print ("[+] Bank : " + bank)
+        print ("[+] Country : " + country)
 
-        while True:
-            a = int(input("Enter your BIN: "))
-            bin_no = str(a)
-            first = bin_no[0]
-            check = ['3','4','5','6']
-            if (len(bin_no) >= 6) and first in check:
-                break
-            else:
-                print("Invalid BIN length [" + str(len(bin_no)) + "] or Invalid Format, Please try again!")
+    while True:
+        a = str(input("Enter your BIN: "))
+        first = a[0]
+        check = ['3','4','5','6']
+        if (len(a) >= 6) and first in check:
+            break
+        else:
+            print("Invalid BIN length[" + str(len(a)) + "] or Invalid Format, Please try again!")
 
+    url = ('https://lookup.binlist.net/' + (a))
 
-        #Check if the length of bin is correct
+    result = requests.get(url)
+    data = json.loads(result.text)
 
-        url = ('https://lookup.binlist.net/' + str(bin_no))
-        payload = {
-            'accept': 'application/json',
-            'accept-encoding': 'gzip, deflate, br',
-            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'
-        }
-
-        result = requests.get(url, payload).json()
-
-        scheme = result['scheme']
-        type = result['type']
-        brand = result['brand']
-        prepaid = str(result['prepaid'])
-        bank = result['bank']['name']
-
-        info()
-
-    elif option == 2:
-        print("you called option 2")
-    elif option == 3:
-        print("you called option 3")
-    else:
-        print("Invalid option")
-
+    scheme = (str(dictor(data, 'scheme', default='Unknown')))
+    types = (str(dictor(data, 'type', default='Unknown')))
+    brand = (str(dictor(data, 'brand', default='Unknown')))
+    prepaid = (str(dictor(data, 'prepaid', default='Unknown')))
+    bank = (str(dictor(data, 'bank.name', default='Unknown')))
+    country = (str(dictor(data,'country.name', default='Unknown')))
+        
+    info()
     print()
-    menu()
-    
-    option = int(input("Enter your option: "))
-
-print("Thanks for using this program")
