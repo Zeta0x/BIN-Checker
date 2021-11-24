@@ -6,20 +6,19 @@ from dictor import dictor
 def menu():
     print("BIN Checker v1.0")
     print("Author : Zeta\n")
-
 menu()
 
 while True:
 
     def info():
         print()
-        print ("[+] Network: " + str.capitalize(scheme))
-        print ("[+] Type : " + str.capitalize(types))
-        print ("[+] Brand : " + brand)
-        print ("[+] Prepaid : " + prepaid)
-        print ("[+] Bank : " + bank)
-        print ("[+] Bank Phone Number : " + phone)
-        print ("[+] Country : " + country)
+        print ("[•] Network: " + str.capitalize(scheme))
+        print ("[•] Type : " + str.capitalize(types))
+        print ("[•] Brand : " + brand)
+        print ("[•] Prepaid : " + prepaid)
+        print ("[•] Bank : " + bank)
+        print ("[•] Bank Phone Number : " + phone)
+        print ("[•] Country : " + country)
 
     while True:
         a = str(input("Enter your BIN: "))
