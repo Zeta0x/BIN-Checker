@@ -18,6 +18,7 @@ while True:
         print ("[+] Brand : " + brand)
         print ("[+] Prepaid : " + prepaid)
         print ("[+] Bank : " + bank)
+        print ("[+] Bank Phone Number : " + phone)
         print ("[+] Country : " + country)
 
     while True:
@@ -39,6 +40,7 @@ while True:
     brand = (str(dictor(data, 'brand', default='Unknown')))
     prepaid = (str(dictor(data, 'prepaid', default='Unknown')))
     bank = (str(dictor(data, 'bank.name', default='Unknown')))
+    phone = (str(dictor(data,'bank.phone', default='Unknown')))
     country = (str(dictor(data,'country.name', default='Unknown')))
         
     info()
