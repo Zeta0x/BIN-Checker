@@ -1,33 +1,37 @@
 import requests
 import json
+import colorama
 from dictor import dictor
+from colorama import Fore
 
-
+colorama.init(autoreset = True)
 def menu():
-    print("BIN Checker v1.0")
-    print("Author : Zeta\n")
+    print(f"{Fore.GREEN}+------------------+")
+    print(f"{Fore.GREEN}| BIN Checker v1.0 |")
+    print(f"{Fore.GREEN}| Author : Zeta    |") 
+    print(f"{Fore.GREEN}+------------------+\n")
 menu()
 
 while True:
 
     def info():
         print()
-        print ("[•] Network: " + str.capitalize(scheme))
-        print ("[•] Type : " + str.capitalize(types))
-        print ("[•] Brand : " + brand)
-        print ("[•] Prepaid : " + prepaid)
-        print ("[•] Bank : " + bank)
-        print ("[•] Bank Phone Number : " + phone)
-        print ("[•] Country : " + country)
+        print (f"{Fore.GREEN}[•] Network: " + str.capitalize(scheme))
+        print (f"{Fore.GREEN}[•] Type : " + str.capitalize(types))
+        print (f"{Fore.GREEN}[•] Brand : " + brand)
+        print (f"{Fore.GREEN}[•] Prepaid : " + prepaid)
+        print (f"{Fore.GREEN}[•] Bank : " + bank)
+        print (f"{Fore.GREEN}[•] Bank Phone Number : " + phone)
+        print (f"{Fore.GREEN}[•] Country : " + country)
 
     while True:
-        a = str(input("Enter your BIN: "))
+        a = str(input(f"{Fore.GREEN}Enter your BIN: "))
         first = a[0]
         check = ['3','4','5','6']
         if (len(a) >= 6) and first in check:
             break
         else:
-            print("Invalid BIN length[" + str(len(a)) + "] or Invalid Format, Please try again!")
+            print(f"\n{Fore.RED}Invalid BIN length[" + str(len(a)) + "] or Invalid Format, Please try again! \n")
 
     url = ('https://lookup.binlist.net/' + (a))
 
