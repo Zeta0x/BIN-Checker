@@ -28,7 +28,7 @@ while True:
         a = str(input(f"{Fore.GREEN}Enter your BIN: "))
         first = a[0]
         check = ['3','4','5','6']
-        if (len(a) >= 6) and first in check:
+        if (len(a) >= 6) and first in check and (len(a) <= 10):
             break
         else:
             print(f"\n{Fore.RED}Invalid BIN length[" + str(len(a)) + "] or Invalid Format, Please try again! \n")
