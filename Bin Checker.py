@@ -25,7 +25,7 @@ while True:
         print (f"{Fore.GREEN}[•] Country : " + country)
 
     while True:
-        a = str(input(f"{Fore.GREEN}Enter your BIN: "))
+        a = str(input("Enter your BIN: "))
         first = a[0]
         check = ['3','4','5','6']
         if (len(a) >= 6) and first in check and (len(a) <= 10):
