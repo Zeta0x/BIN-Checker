@@ -1,5 +1,5 @@
 # BIN-Checker
-Python Bank Identification Number checker
+Bank Identification Number checker
 
 # Requirements
     pip install requests
