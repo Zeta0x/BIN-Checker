@@ -6,10 +6,10 @@ from colorama import Fore
 
 colorama.init(autoreset = True)
 def menu():
-    print(f"{Fore.GREEN}+------------------+")
-    print(f"{Fore.GREEN}| BIN Checker v1.0 |")
-    print(f"{Fore.GREEN}| Author : Zeta    |") 
-    print(f"{Fore.GREEN}+------------------+\n")
+    print(f"{Fore.GREEN} +------------------+")
+    print(f"{Fore.GREEN} | BIN Checker v1.0 |")
+    print(f"{Fore.GREEN} | Author : Zeta    |") 
+    print(f"{Fore.GREEN} +------------------+\n")
 menu()
 
 while True:
