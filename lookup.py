@@ -26,14 +26,15 @@ while True:
 
     while True:
         a = str(input("Enter your BIN: "))
+        b = a.strip()
         first = a[0]
         check = ['3','4','5','6']
-        if (len(a) >= 6) and first in check and (len(a) <= 16):
+        if (len(b) >= 6) and first in check and (len(b) <= 16):
             break
         else:
-            print(f"\n{Fore.RED}Invalid BIN length[" + str(len(a)) + "] or Invalid Format, Please try again! \n")
+            print(f"\n{Fore.RED}Invalid BIN length[" + str(len(b)) + "] or Invalid Format, Please try again! \n")
 
-    url = ('https://lookup.binlist.net/' + (a))
+    url = ('https://lookup.binlist.net/' + (b))
 
     result = requests.get(url)
     data = json.loads(result.text)
