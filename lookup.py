@@ -11,7 +11,6 @@ def menu():
     print(f"{Fore.GREEN} | Author : Zeta    |") 
     print(f"{Fore.GREEN} +------------------+\n")
 menu()
-
 while True:
 
     def info():
@@ -26,15 +25,16 @@ while True:
 
     while True:
         a = str(input("Enter your BIN: "))
-        b = a.strip()
+        b = a[:7]
+        c = b.replace(" ", "")
         first = a[0]
         check = ['3','4','5','6']
-        if (len(b) >= 6) and first in check and (len(b) <= 16):
+        if (len(c) >= 6) and first in check and (len(c) <= 16):
             break
         else:
-            print(f"\n{Fore.RED}Invalid BIN length[" + str(len(b)) + "] or Invalid Format, Please try again! \n")
+            print(f"\n{Fore.RED}Invalid BIN length[" + str(len(c)) + "] or Invalid Format, Please try again! \n")
 
-    url = ('https://lookup.binlist.net/' + (b))
+    url = ('https://lookup.binlist.net/' + (c))
 
     result = requests.get(url)
     data = json.loads(result.text)
