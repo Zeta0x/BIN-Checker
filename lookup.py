@@ -34,11 +34,12 @@ while True:
             if (len(b) >= 6) and first in check:
                 break
             else:
-                print("Invalid Format, Please try again! \n")
+                print("\nInvalid Format, please try again!\n")
         except IndexError:
             break
 
     url = f"https://lookup.binlist.net/{b}"
+
     try:
         result = requests.get(url)
         data = json.loads(result.text)
