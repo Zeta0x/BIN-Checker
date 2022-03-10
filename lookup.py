@@ -30,17 +30,17 @@ while True:
             a = str(input("Enter your BIN: "))
             print()
             b = a[:7]
-            c = b.replace(" ", "")
+            print(b)
             first = a[0]
             check = ['3','4','5','6']
-            if (len(c) >= 6) and first in check:
+            if (len(b) >= 6) and first in check:
                 break
             else:
                 print("Invalid Format, Please try again! \n")
         except IndexError:
             break
 
-    url = f"https://lookup.binlist.net/{c}"
+    url = f"https://lookup.binlist.net/{b}"
     try:
         result = requests.get(url)
         data = json.loads(result.text)
