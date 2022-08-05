@@ -3,25 +3,23 @@ import json
 from dictor import dictor
 
 
-def author():
-    print("+------------------+")
-    print("| BIN Checker v1.0 |")
-    print("| Author : Zeta    |") 
-    print("+------------------+")
-    print()
+print("+------------------+")
+print("| BIN Checker v1.0 |")
+print("| Author : Zeta    |") 
+print("+------------------+")
+print()
+
 
 def info():
-        print()
-        print ("[•] Network: " + str.capitalize(scheme))
-        print ("[•] Type : " + str.capitalize(types))
-        print ("[•] Brand : " + brand)
-        print ("[•] Prepaid : " + prepaid)
-        print ("[•] Bank : " + bank)
-        print ("[•] Bank Phone Number : " + phone)
-        print ("[•] Country : " + country)
+    print()
+    print ("[•] Network: " + str.capitalize(scheme))
+    print ("[•] Type : " + str.capitalize(types))
+    print ("[•] Brand : " + brand)
+    print ("[•] Prepaid : " + prepaid)
+    print ("[•] Bank : " + bank)
+    print ("[•] Bank Phone Number : " + phone)
+    print ("[•] Country : " + country)
 
-if __name__ == "__main__":
-    author()
 
 while True:
 
