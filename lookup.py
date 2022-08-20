@@ -12,31 +12,31 @@ print()
 
 def info():
     print()
-    print ("[•] Network: " + str.capitalize(scheme))
-    print ("[•] Type : " + str.capitalize(types))
-    print ("[•] Brand : " + brand)
-    print ("[•] Prepaid : " + prepaid)
-    print ("[•] Bank : " + bank)
-    print ("[•] Bank Phone Number : " + phone)
-    print ("[•] Country : " + country)
+    print (f"[•] Network: {str.capitalize(scheme)}")
+    print (f"[•] Type : {str.capitalize(types)}")
+    print (f"[•] Brand : {brand}")
+    print (f"[•] Prepaid : {prepaid}")
+    print (f"[•] Bank : {bank}")
+    print (f"[•] Bank Phone Number : {phone}")
+    print (f"[•] Country : {country}")
 
 
 while True:
 
     while True:
         try:
-            a = str(input("Enter your BIN: "))
-            b = a[:7]
-            first = a[0]
-            check = ["3","4","5","6"]
-            if (len(b) >= 6) and first in check:
+            bin_ = str(input("Enter your BIN: "))
+            bin_number = bin_[:7]
+            card_prefix = bin_[0]
+            valid_prefix = ["3","4","5","6"]
+            if (len(bin_number) >= 6) and card_prefix in valid_prefix:
                 break
             else:
                 print("\nInvalid Format, please try again!\n")
         except IndexError:
             break
 
-    url = f"https://lookup.binlist.net/{b}"
+    url = f"https://lookup.binlist.net/{bin_number}"
 
     try:
         result = requests.get(url)
