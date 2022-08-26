@@ -11,8 +11,8 @@
     python lookup.py
     
 # Notes
-    
-    Text file format should be like these!
-    [format](https://user-images.githubusercontent.com/94939500/186955132-b2a552c2-9eed-486d-be4c-10588113219b.png)
-    
-    Unfortunately https://binlist.net/ throttles at 10 requests per minute.
+    Unfortunately https://binlist.net/ throttles requests at 10 per minute.
+    Text file format should be like this:
+![](images/format.png)
+
+#
