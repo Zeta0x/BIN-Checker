@@ -1,6 +1,6 @@
 # BIN-Checker
-Bank Identification Number Checker
-Data : https://binlist.net/
+    Bank Identification Number Checker
+    Data : https://binlist.net/
 
 # Requirements
     pip install requests
