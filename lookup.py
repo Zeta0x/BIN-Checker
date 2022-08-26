@@ -35,6 +35,7 @@ def fetch_info(data):
 
 
 def print_info(data):
+    print()
     print_list = ['[•] Network:', '[•] Type :', '[•] Brand :', '[•] Prepaid :', '[•] Bank :', '[•] Bank phone number :', '[•] Country :']
     for a, b in zip(print_list, data ):
         try:
