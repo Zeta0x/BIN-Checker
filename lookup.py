@@ -149,19 +149,21 @@ def single_lookup():
                     data.write(f'{save_data}\n')
         elif input_bin == 'exit':
             break
-        
-        
+
 
 def mass_lookup():
-    for input_bin in get_bins():
-        save_data = main(input_bin)
-        if save_data:
-            save_data.insert(0, input_bin)
-            with open('Cached.txt', 'a') as data:
-                data.write(f'{save_data}\n')
-    
-    print('Options')
-        
+    try:
+        for input_bin in get_bins():
+            save_data = main(input_bin)
+            if save_data:
+                save_data.insert(0, input_bin)
+                with open('Cached.txt', 'a') as data:
+                    data.write(f'{save_data}\n')
+
+        print('Options')
+    except TypeError:
+        pass
+
 
 def options():
     while True:
@@ -180,7 +182,7 @@ def options():
         except ValueError:
             print('Invalid option!')
             options()
-            
+
 
 if __name__ == '__main__':
     options()
