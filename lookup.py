@@ -8,7 +8,7 @@ print("| Author : Zeta    |")
 print("+------------------+\n")
 
 
-def check_if_alpha(bin_):
+def check_is_digit(bin_):
     bin_list = []
     for i in bin_:
         if i.isdigit():
@@ -67,7 +67,7 @@ def main():
     while True:
         try:
             input_bin = str(input("Enter your BIN: "))
-            check_int = check_if_alpha(input_bin)
+            check_int = check_is_digit(input_bin)
             bin_ = "".join(check_int.split())
             bin_number = bin_[:7]
             print(f'BIN: {bin_number}\n')
