@@ -12,7 +12,7 @@
     
 # Notes
     
-    Text file format should be like these
-    ![Bin.text format](https://user-images.githubusercontent.com/94939500/186954715-38e4620d-e892-4e2e-ad22-c78d339957bf.png)
+    Text file format should be like these!
+    [format](https://user-images.githubusercontent.com/94939500/186955132-b2a552c2-9eed-486d-be4c-10588113219b.png)
     
     Unfortunately https://binlist.net/ throttles at 10 requests per minute.
