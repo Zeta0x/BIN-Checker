@@ -8,6 +8,19 @@ print("| Author : Zeta    |")
 print("+------------------+\n")
 
 
+def check_if_alpha(bin_):
+    bin_list = []
+    for i in bin_:
+        if i.isdigit():
+            bin_list.append(i)
+        else:
+            pass
+        
+    return_bin = str(''.join(bin_list))
+    
+    return return_bin
+
+
 def fetch_info(data):
     return_data_list =[]
     req_bin_data = ['scheme', 'type', 'brand', 'prepaid']
@@ -15,7 +28,7 @@ def fetch_info(data):
         try:
             return_data_list.append(data[i])
         except KeyError:
-            return_data_list.append('unknown')
+            return_data_list.append('Unknown')
     try:
         return_data_list.append(data['bank']['name'])
     except KeyError:
@@ -35,37 +48,49 @@ def fetch_info(data):
 
 
 def print_info(data):
-    print()
-    print_list = ['[•] Network:', '[•] Type :', '[•] Brand :', '[•] Prepaid :', '[•] Bank :', '[•] Bank phone number :', '[•] Country :']
-    for a, b in zip(print_list, data ):
+    print_list = ['Network:', 'Type :', 'Brand :', 'Prepaid :', 'Bank :', 'Bank phone number :', 'Country :']
+    for annotation, print_data in zip(print_list, data ):
         try:
-            print(f'{a} {b.capitalize()}')
+            if print_data != 'Unknown':
+                print(f'[-]{annotation} {print_data.capitalize()}')
+            else:
+                print(f'[x]{annotation} {print_data.capitalize()}')
         except AttributeError:
-            print(f'{a} {b}')
+            if print_data != 'Unknown':
+                print(f'[-]{annotation} {print_data}')
+            else:
+                print(f'[x]{annotation} {print_data}')
     print()
 
-while True:
-    try:
-        bin_ = str(input("Enter your BIN: "))
-        bin_ = "".join(bin_.split())
-        bin_number = bin_[:7]
-        card_prefix = bin_[0]
-        valid_prefix = ["3","4","5","6"]
-        if (len(bin_number) >= 6):
-            if card_prefix in valid_prefix:
-                url = f"https://lookup.binlist.net/{bin_number}"
-                try:
-                    result = requests.get(url).text
-                    data = json.loads(result)
-                    fetch_list_data = fetch_info(data)
-                    if __name__ == '__main__':
+
+def main():
+    while True:
+        try:
+            input_bin = str(input("Enter your BIN: "))
+            check_int = check_if_alpha(input_bin)
+            bin_ = "".join(check_int.split())
+            bin_number = bin_[:7]
+            print(f'BIN: {bin_number}\n')
+            card_prefix = bin_[0]
+            valid_prefix = ["3","4","5","6"]
+            if (len(bin_number) >= 6):
+                if card_prefix in valid_prefix:
+                    url = f"https://lookup.binlist.net/{bin_number}"
+                    try:
+                        result = requests.get(url).text
+                        data = json.loads(result)
+                        fetch_list_data = fetch_info(data)
                         print_info(fetch_list_data)
 
-                except json.decoder.JSONDecodeError:
+                    except json.decoder.JSONDecodeError:
+                        print("Invalid Format, please try again!\n")
+                else:
                     print("Invalid Format, please try again!\n")
             else:
                 print("Invalid Format, please try again!\n")
-        else:
+        except IndexError:
             print("Invalid Format, please try again!\n")
-    except IndexError:
-        print("Invalid Format, please try again!\n")
+            
+            
+if __name__ == '__main__':
+    main()
