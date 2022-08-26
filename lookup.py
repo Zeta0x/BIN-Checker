@@ -48,7 +48,7 @@ def fetch_info(data):
 
 
 def print_info(data):
-    print_list = ['Network:', 'Type :', 'Brand :', 'Prepaid :', 'Bank :', 'Bank phone number :', 'Country :']
+    print_list = ['Network:', 'Type:', 'Brand:', 'Prepaid:', 'Bank:', 'Bank phone number:', 'Country:']
     for annotation, print_data in zip(print_list, data ):
         try:
             if print_data != 'Unknown':
