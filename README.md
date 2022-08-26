@@ -7,5 +7,5 @@
     
 # Clone Repo
     git clone https://github.com/Zeta0x/BIN-Checker.git
-    cd BIN-checker
+    cd BIN-Checker
     python lookup.py
