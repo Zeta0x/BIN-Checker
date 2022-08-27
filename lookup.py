@@ -98,7 +98,6 @@ def get_bins():
 
 
 def menu():
-    
     print('\n[1] Single BIN lookup')
     print('[2] Mass BIN lookup')
     print('[0] Exit!')
@@ -138,7 +137,7 @@ def main(input_bin):
 
 
 def single_lookup():
-    print('\nNote : Type [exit] to return to the menu!')
+    print('\nNote : Enter [exit] to return to the menu!')
     while True:
         input_bin = str(input("Enter your BIN: "))
         if input_bin != 'exit':
