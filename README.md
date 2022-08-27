@@ -12,6 +12,7 @@
     
 # Notes
     Unfortunately https://binlist.net/ throttles requests at 10 per minute.
+    Create a Bins.txt file.
     Text file format should be like this:
 ![](images/format.png)
 
