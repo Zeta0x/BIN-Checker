@@ -84,9 +84,9 @@ def get_bins():
                 txt_bin_list.append(line)
     except FileNotFoundError:
         print('Bins.txt is not found!')
-        with open('[+]Bins.txt', 'w') as f:
-            print('[+]Creating Bins.txt file...')
-            print('[+]Bins.txt created!')
+        with open('Bins.txt', 'w') as f:
+            print('Creating Bins.txt file...')
+            print('Bins.txt created!')
     
     try:
         if txt_bin_list[0] == "":
